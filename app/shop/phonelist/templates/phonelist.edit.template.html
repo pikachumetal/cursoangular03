@@ -1,7 +1,8 @@
 <form name="phoneForm" role="form" class="container " novalidate>
     <div class="control-group">
         <label for="name">Name:</label>
-        <input id="txtName" name="name" ng-class="{ 'has-error': phoneForm.name.$touched && phoneForm.name.$invalid }" class="form-control" type="text" ng-model="phoneEditCtrl.phone.name" required />
+        <input id="txtName" name="name" ng-class="{ 'has-error': phoneForm.name.$touched && phoneForm.name.$invalid }" class="form-control" 
+        type="text" ng-model="phoneEditCtrl.phone.name" required />
         <!--<span class="errorMessage" ng-show="phoneForm.name.$touched && phoneForm.name.$invalid">The name is required.</span>-->
         <!--<div class="errorMessage"  ng-messages="phoneForm.name.$error" ng-show="phoneForm.name.$touched && phoneForm.name.$invalid">
             <div  ng-message="required"><span class="glyphicon glyphicon-alert"></span> This field is required</div>
@@ -52,4 +53,5 @@
     <pre>form is valid = {{phoneForm.$valid}}</pre>
     <pre>form = {{phoneEditCtrl.phone|json}}</pre>
     <pre>master = {{phoneEditCtrl.master|json}}</pre>
+    <pre>{{phoneEditCtrl |json}}</pre>
 </form>

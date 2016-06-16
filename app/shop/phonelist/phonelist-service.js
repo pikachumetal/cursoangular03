@@ -1,17 +1,17 @@
 angular.module('appPhone').service("PhoneService", function ($http, $q) {
     "use strict";
 
-    var reduceArray = function reduceArray(data) {
-        return data.reduce(function (result, currentObject) {
-            for (var key in currentObject) {
-                if (currentObject.hasOwnProperty(key)) {
-                    result[key] = currentObject[key];
-                }
-            }
-            return result;
-        }, {});
+    // var reduceArray = function reduceArray(data) {
+    //     return data.reduce(function (result, currentObject) {
+    //         for (var key in currentObject) {
+    //             if (currentObject.hasOwnProperty(key)) {
+    //                 result[key] = currentObject[key];
+    //             }
+    //         }
+    //         return result;
+    //     }, {});
 
-    }
+    // }
 
     var getQuerySelector = function getQuerySelector() {
         var deferred = $q.defer();
