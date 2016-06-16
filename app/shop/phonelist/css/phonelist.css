@@ -13,3 +13,12 @@ span.errorMessage {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+.errorMessag:after {
+    position: absolute;
+    top: -10px;
+    content: "";
+    left: 20px;
+    border-style: solid;
+    border-color: transparent transparent maroon;
+    border-width: 5px;
+}
