@@ -7,29 +7,33 @@ angular.module('appPhone').controller('PhoneListController', function PhoneListC
             $model.phones = data;
             PhoneLocalStorage.setPhones(data);
         });
-    }
+    };
 
     var loadQuerySelector = function loadQuerySelector() {
         PhoneService.getQuerySelector().then(function (data) {
             $model.queryselectorLabels = data;
         });
-    }
+    };
 
     var loadSeeImage = function loadSeeImage() {
         PhoneService.getSeeImage().then(function (data) {
             $model.seeimageLabels = data;
         });
-    }
+    };
+
+    var onUpdateQuery = function onUpdateQuery(query) {
+        $model.query = query;
+    };
 
     var loadPhones = function loadPhones() {
         return PhoneLocalStorage.getPhones();
-    }
+    };
 
     var deletePhone = function deletePhone(id) {
         id = parseInt(id || 0);
         $model.phones = $model.phones.filter(function (item) { return item.id !== id; });
         PhoneLocalStorage.setPhones($model.phones);
-    }
+    };
 
     var initController = function initController() {
         $model.phones = loadPhones();
@@ -43,7 +47,8 @@ angular.module('appPhone').controller('PhoneListController', function PhoneListC
         $model.seeimage = "app/shop/phonelist/templates/phonelist.list.image.template.html";
         $model.reloadjson = reloadJSON;
         $model.deletePhone = deletePhone;
-    }
+        $model.onUpdateQuery = onUpdateQuery;
+    };
 
     initController();
 });
@@ -68,7 +73,7 @@ angular.module('appPhone').controller('PhoneEditController', function PhoneListC
         $model.master = angular.copy(phone);
         $model.resetForm = resetForm;
         $model.saveForm = saveForm;
-    }
+    };
 
     initController();
 });
@@ -80,7 +85,7 @@ angular.module('appPhone').controller('PhoneItemController', function PhoneListC
     var initController = function initController() {
         var phone = PhoneLocalStorage.getPhone(parseInt($routeParams.id));
         $model.phone = phone;
-    }
+    };
 
     initController();
 });
