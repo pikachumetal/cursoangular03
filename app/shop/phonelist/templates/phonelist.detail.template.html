@@ -1,0 +1,11 @@
+<div>
+    <h3 ng-class="{enOferta : phone.enOferta}">{{phone.name}}</h3>
+    <p>{{phone.snippet}}</p>
+    <p>Price: {{phone.price || 0 | currency}}</p>
+    <p>
+        <img class="center-block" ng-src="{{phone.image}}" alt="{{phone.imagealt}}" />
+    </p>
+    <p>
+        <a ng-href="#/phones/list" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-backward"></span> Go Back</a>
+    </p>
+</div>

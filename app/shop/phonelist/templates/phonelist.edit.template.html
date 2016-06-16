@@ -1,0 +1,30 @@
+<form name="phoneForm" role="form" novalidate>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="txtName" name="name" class="form-control" type="text" ng-model="phone.name" required />
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label for="enOferta"><input id="chkenOferta" name="enOferta" type="checkbox"  class="checkbox-inline" ng-model="phone.enOferta" /> In promotion</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="snippet">Description:</label>
+        <textarea id="txtSnippet" name="snippet" class="form-control" type="text" ng-model="phone.snippet" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="price">Price:</label>
+        <div class="input-group">
+            <span class="input-group-addon">€</span>
+            <input id="txtPrice" name="price" class="form-control currency" type="number" ng-model="phone.price" required only-numbers />
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success btn-block" ng-disabled="phoneForm.$invalid" ng-click="saveForm()"><span class="glyphicon glyphicon-save"></span> Save</button>
+        <button class="btn btn-warning btn-block" ng-click="resetForm()"><span class="glyphicon glyphicon-alert"></span> Reset</button>
+        <a ng-href="#/phones/list" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-backward"></span> Go Back</a>
+    </div>
+    <pre>form is valid = {{phoneForm.$valid}}</pre>
+    <pre>form = {{phone|json}}</pre>
+    <pre>master = {{master|json}}</pre>
+</form>
