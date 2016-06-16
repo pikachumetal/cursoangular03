@@ -1,4 +1,4 @@
-angular.module('appPhone',["ngRoute"]).config(function ($routeProvider) {
+angular.module('appPhone',["ngRoute","ngMessages"]).config(function ($routeProvider) {
     "use strict";
     
     $routeProvider

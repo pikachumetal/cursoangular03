@@ -1,6 +1,5 @@
 
 input.ng-invalid, 
 textarea.ng-invalid {
-    border-color: red;
-    border-width: 2px;
+    border-color: maroon;
 }

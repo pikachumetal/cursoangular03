@@ -1,3 +1,15 @@
 .enOferta {
     color: red;
 }
+div.errorMessage,
+span.errorMessage {
+    background: maroon;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

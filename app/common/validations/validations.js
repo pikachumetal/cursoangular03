@@ -1,16 +1,34 @@
-angular.module('appPhone').directive('onlyNumbers', function () {
+angular.module('appPhone').directive("onlynumbers", function () {
     return {
         require: 'ngModel',
-        link: function ($scope, $element, $attr, $mCtrl) {
-            function onlyNumbersValidation(n) {
-                if (!isNaN(parseFloat(n)) && isFinite(n)) {
-                    $mCtrl.$setValidity('charE', true);
-                } else {
-                    $mCtrl.$setValidity('charE', false);
-                }
-                return n;
+        restrict: "A",
+        link: function ($scope, $element, $attr, ngModel) {
+            // function onlyNumbersValidation(n) {
+            //     if (!isNaN(parseFloat(n)) && isFinite(n)) {
+            //         $mCtrl.$setValidity('charE', true);
+            //     } else {
+            //         $mCtrl.$setValidity('charE', false);
+            //     }
+            //     return n;
+            // }
+            // $mCtrl.$validators.onlynumbers= onlyNumbersValidation;
+            // $mCtrl.$parsers.push(onlyNumbersValidation);
+            
+            ngModel.$validators.onlynumbers = function(modelValue) {  
+                return !isNaN(parseFloat(modelValue)) && isFinite(modelValue);
             }
-            $mCtrl.$parsers.push(onlyNumbersValidation);
+        }
+    };
+});
+
+angular.module('appPhone').directive("odd", function() {
+    return {
+        restrict: "A",         
+        require: "ngModel",         
+        link: function(scope, element, attributes, ngModel) {
+            ngModel.$validators.odd = function(modelValue) {  
+                return modelValue % 2 === 1;
+            }
         }
     };
 });

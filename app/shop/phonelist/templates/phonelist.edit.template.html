@@ -1,7 +1,14 @@
 <form name="phoneForm" role="form" novalidate>
     <div class="form-group">
         <label for="name">Name:</label>
-        <input id="txtName" name="name" class="form-control" type="text" ng-model="phone.name" required />
+        <input id="txtName" name="name" ng-class="{ 'has-error': phoneForm.name.$touched && phoneForm.name.$invalid }" class="form-control" type="text" ng-model="phone.name" required />
+        <!--<span class="errorMessage" ng-show="phoneForm.name.$touched && phoneForm.name.$invalid">The name is required.</span>-->
+        <!--<div class="errorMessage"  ng-messages="phoneForm.name.$error" ng-show="phoneForm.name.$touched && phoneForm.name.$invalid">
+            <div  ng-message="required"><span class="glyphicon glyphicon-alert"></span> This field is required</div>
+        </div>-->
+        <div class="errorMessage" ng-messages="phoneForm.name.$error" ng-show="phoneForm.name.$touched && phoneForm.name.$invalid">
+            <div ng-messages-include="app/common/templates/error-messages.template.html"></div>
+        </div>
     </div>
     <div class="form-group">
         <div class="checkbox">
@@ -10,21 +17,40 @@
     </div>
     <div class="form-group">
         <label for="snippet">Description:</label>
-        <textarea id="txtSnippet" name="snippet" class="form-control" type="text" ng-model="phone.snippet" required></textarea>
-    </div>
-    <div class="form-group">
-        <label for="price">Price:</label>
-        <div class="input-group">
-            <span class="input-group-addon">€</span>
-            <input id="txtPrice" name="price" class="form-control currency" type="number" ng-model="phone.price" required only-numbers />
+        <textarea id="txtSnippet" name="snippet" ng-class="{ 'has-error': phoneForm.name.$touched && phoneForm.name.$invalid }" class="form-control" 
+        type="text" ng-model="phone.snippet" required></textarea>
+        <!--<span class="errorMessage" ng-show="phoneForm.snippet.$touched && phoneForm.snippet.$invalid">The description is required.</span>-->
+        <div class="errorMessage" ng-messages="phoneForm.snippet.$error" ng-show="phoneForm.snippet.$touched && phoneForm.snippet.$invalid">
+            <!--<div ng-message="required"><span class="glyphicon glyphicon-alert"></span> This field is required</div>
+        </div>-->
+            <div ng-messages="phoneForm.snippet.$error" ng-show="phoneForm.snippet.$touched && phoneForm.snippet.$invalid">
+                <div ng-messages-include="app/common/templates/error-messages.template.html"></div>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <button class="btn btn-success btn-block" ng-disabled="phoneForm.$invalid" ng-click="saveForm()"><span class="glyphicon glyphicon-save"></span> Save</button>
-        <button class="btn btn-warning btn-block" ng-click="resetForm()"><span class="glyphicon glyphicon-alert"></span> Reset</button>
-        <a ng-href="#/phones/list" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-backward"></span> Go Back</a>
-    </div>
-    <pre>form is valid = {{phoneForm.$valid}}</pre>
-    <pre>form = {{phone|json}}</pre>
-    <pre>master = {{master|json}}</pre>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <div class="input-group">
+                <span class="input-group-addon">€</span>
+                <input id="txtPrice" name="price" ng-class="{ 'has-error': phoneForm.name.$touched && phoneForm.name.$invalid }" 
+                class="form-control currency" type="number" ng-model="phone.price" required onlynumbers/>
+            </div>
+            <!--<span class="errorMessage" ng-show="phoneForm.price.$touched && phoneForm.price.$invalid">The price is required.</span>-->
+            <!--<div class="errorMessage" ng-messages="phoneForm.price.$error" ng-show="phoneForm.price.$touched && phoneForm.price.$invalid">
+            <div ng-message="required"><span class="glyphicon glyphicon-alert"></span> This field is required</div>
+        </div>-->
+            <div ng-messages="phoneForm.price.$error" ng-show="phoneForm.price.$touched && phoneForm.price.$invalid" <div class="errorMessage" 
+            ng-messages="phoneForm.price.$error" ng-show="phoneForm.price.$touched && phoneForm.price.$invalid">
+                <!--<div ng-message="required"><span class="glyphicon glyphicon-alert"></span> This field is required</div>
+                <div ng-message="odd"><span class="glyphicon glyphicon-alert"></span> Odd numbers only!</div>-->
+                <div ng-messages-include="app/common/templates/error-messages.template.html"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success btn-block" ng-disabled="phoneForm.$invalid" ng-click="saveForm()"><span class="glyphicon glyphicon-save"></span> Save</button>
+            <button class="btn btn-warning btn-block" ng-click="resetForm()"><span class="glyphicon glyphicon-alert"></span> Reset</button>
+            <a ng-href="#/phones/list" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-backward"></span> Go Back</a>
+        </div>
+        <pre>form is valid = {{phoneForm.$valid}}</pre>
+        <pre>form = {{phone|json}}</pre>
+        <pre>master = {{master|json}}</pre>
 </form>

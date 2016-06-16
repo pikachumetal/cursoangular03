@@ -43,17 +43,18 @@ angular.module('appPhone').controller('PhoneListController', function PhoneListC
         $scope.seeimage = "app/shop/phonelist/templates/phonelist.list.image.template.html";
         $scope.reloadjson = reloadJSON;
         $scope.deletePhone = deletePhone;
-   }
+    }
 
     initController();
 });
 
-angular.module('appPhone').controller('PhoneEditController', function PhoneListController($scope, PhoneLocalStorage, $routeParams,$location) {
+// angular.module('appPhone',["ngMessages"]).controller('PhoneEditController', function PhoneListController($scope, PhoneLocalStorage, $routeParams,$location) {
+angular.module('appPhone').controller('PhoneEditController', function PhoneListController($scope, PhoneLocalStorage, $routeParams, $location) {
     "use strict";
 
     var saveForm = function saveForm() {
         PhoneLocalStorage.setPhone(parseInt($routeParams.id), $scope.phone);
-        $location.path( "/phones/list" );
+        $location.path("/phones/list");
     };
 
     var resetForm = function resetForm() {
