@@ -1,4 +1,4 @@
-angular.module('appPhone', ["ngRoute", "ngMessages"]).config(function ($routeProvider) {
+angular.module('appPhone', ["ngRoute", "ngMessages", 'pascalprecht.translate']).config(function ($routeProvider, $translateProvider) {
     "use strict";
 
     $routeProvider
@@ -20,4 +20,18 @@ angular.module('appPhone', ["ngRoute", "ngMessages"]).config(function ($routePro
         .otherwise({
             redirectTo: '/phones/list'
         });
+
+    $translateProvider.translations('en', {
+        TITLE: 'Hello',
+        FOO: 'This is a paragraph.',
+        BUTTON_LANG_EN: 'english',
+        BUTTON_LANG_DE: 'german'
+    });
+    $translateProvider.translations('de', {
+        TITLE: 'Hallo',
+        FOO: 'Dies ist ein Paragraph.',
+        BUTTON_LANG_EN: 'englisch',
+        BUTTON_LANG_DE: 'deutsch'
+    });
+    $translateProvider.preferredLanguage('en');
 });

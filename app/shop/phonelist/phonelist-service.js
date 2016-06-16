@@ -13,6 +13,17 @@ angular.module('appPhone').service("PhoneService", function ($http, $q) {
 
     // }
 
+    var getLanguages = function getLanguages() {
+        var deferred = $q.defer();
+        $http.get('app/shop/phonelist/data/languages.json')
+            .then(function (response) {
+                deferred.resolve(response.data);
+            }, function (error) {
+                deferred.resolve({});
+            });
+        return deferred.promise;
+    };
+
     var getQuerySelector = function getQuerySelector() {
         var deferred = $q.defer();
         $http.get('app/shop/phonelist/data/querySelector.json')
@@ -22,7 +33,7 @@ angular.module('appPhone').service("PhoneService", function ($http, $q) {
                 deferred.resolve({});
             });
         return deferred.promise;
-    }
+    };
 
     var getSeeImage = function getSeeImage() {
         var deferred = $q.defer();
@@ -33,7 +44,7 @@ angular.module('appPhone').service("PhoneService", function ($http, $q) {
                 deferred.resolve({});
             });
         return deferred.promise;
-    }
+    };
 
     var getPhones = function getPhones() {
         var deferred = $q.defer();
@@ -44,7 +55,7 @@ angular.module('appPhone').service("PhoneService", function ($http, $q) {
                 deferred.resolve([]);
             });
         return deferred.promise;
-    }
+    };
 
     return {
         getPhones: getPhones,

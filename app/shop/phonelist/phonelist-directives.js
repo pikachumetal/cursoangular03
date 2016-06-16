@@ -31,7 +31,8 @@ angular.module('appPhone').component("phoneSearchDir", {
         queryselector: '=',
         query: '<',
         reloadjson: '&',
-        updateQuery: '&'
+        updateQuery: '&',                
+changeLanguage: '&'
     },
     controller: searchPhonesQueryController
 });
